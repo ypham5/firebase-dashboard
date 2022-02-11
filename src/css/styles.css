@@ -586,7 +586,7 @@ main {
 }
 @media (min-width: 500px) {
   .white-btn, .black-btn {
-    padding: 0.75rem 3.5rem;
+    padding: 0.75rem 3rem;
   }
 
   .product-info h2 {
@@ -601,6 +601,11 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+}
+@media (min-width: 1800px) {
+  .product-card {
+    max-width: 420px;
   }
 }
 .site-links {
