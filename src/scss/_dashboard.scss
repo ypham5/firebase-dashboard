@@ -1,0 +1,134 @@
+@use './variants/colors' as *;
+ main {
+    padding: 0 1rem;
+ }
+
+ .product-card {
+     background-color: $neutral-900;
+     border-radius: 10px;
+     box-shadow: 0 0 5px 0 $grey-400;
+     max-width: 480px;
+     margin: 0 auto 4rem;
+
+    //  svg{
+    //      width: 25px;
+    //      &:hover {
+    //          color: $orange-10;
+    //      }
+    //  }
+
+     img {
+        width: 100%;
+     }
+ }
+
+ .card-header {
+     display: flex;
+     justify-content: flex-end;
+     padding: .5rem;
+     button:hover {
+        color: $orange-10;
+     }
+ }
+
+ .product-info {
+     color: $zinc-200;
+     padding: 2rem 1rem;
+     text-transform: uppercase;
+     div{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+        p {
+            font-size: 1rem;
+            color: $grey-50;
+            margin: .5rem 0 1.5rem;
+            font-weight: 500;
+        }
+
+        p:first-of-type {
+            color: $grey-200;
+            font-weight: 300;
+        }
+     }
+
+     h2 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+     }
+ }
+
+ .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+ }
+
+.white-btn {
+    text-transform: uppercase;
+    color: $zinc-50;
+    padding: .75rem;
+    border: 1px solid $zinc-50;
+
+    &:hover {
+        background-color: $orange-10;
+        text-decoration: none;
+        color: $zinc-50;
+    }
+}
+
+.black-btn {
+    text-transform: uppercase;
+    background-color: $zinc-50;
+    color: $zinc-900;
+    font-weight: 600;
+    padding: .75rem;
+    border: 1px solid $zinc-900;
+
+    &:hover {
+        background-color: $orange-10;
+        text-decoration: none;
+        color: $zinc-50;
+        border: 1px solid $zinc-50;
+    }
+}
+
+@media(min-width:348px){
+    .white-btn, .black-btn {
+        padding: .75rem 1.25rem;
+    }
+}
+
+@media(min-width:420px){
+    .white-btn, .black-btn {
+        padding: .75rem 2.5rem;
+    }   
+}
+
+@media(min-width:500px){
+    .white-btn, .black-btn {
+        padding: .75rem 3.5rem;
+    }
+
+    .product-info {
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
+    }
+    
+}
+
+@media(min-width:1000px){
+    main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

@@ -1,37 +1,90 @@
 @use 'variants' as *;
+.site-links{
+    display:flex;
+    align-items: center;
+    gap: 1rem;
+
+    svg{
+        stroke: $orange;
+        width: 2rem;
+
+        &:hover {
+            stroke: $orange-10;
+        }
+    }
+}
+
+.add-btn {
+    color: $orange;
+    border-radius: 3px;
+    border: 2px solid $orange;
+    padding: .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .75rem;
+
+    &:hover{
+        background-color: $orange-10;
+        color: $grey-50;
+        text-decoration: none;
+    }
+}
+
+.content-page-app-bar{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 0 $grey-400;
+    background-color: $neutral-900;
+    div{
+        gap:0.25rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width:100px;
+        }
+
+    }
+}
 
 .page-header{
-    padding: 1rem 0 0;
+    padding: 4rem 1rem 2rem;
     text-align: center;
-    color: $slate-900;
+    color: $grey-900;
+    background-color:$zinc-50;
   
     h1{
-   
-        font-size:2.75rem;
+        font-size:2rem;
+        font-weight: 900;
+        text-transform:uppercase;
+        letter-spacing: 2px;
     }
-    p:first-of-type{
-        font-size:1.25rem;
-        font-weight: bold;
+
+    p {
+        text-transform:uppercase;
+        color: $grey-400;
     }
-    p{
-        color: $slate-500;
-       
-    }
- 
    
 }
 
 @media(min-width:900px){
     .page-header{
-        padding: 2rem 0 0;
+        padding: 4rem 0;
         text-align: center;
       
         h1{
-            color:rgb(27, 17, 17);
-            font-size:3.75rem;
+            font-size:2.5rem;
         }
-       
-        
-       
-    }  
+    } 
+    
+    .content-page-app-bar{
+        padding: 2rem;
+        div{
+            img{
+                width:200px;
+            }
+    
+        }
+    }
 }

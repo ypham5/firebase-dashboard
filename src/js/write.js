@@ -1,14 +1,15 @@
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import {ref as databaseRef, push, set, get, remove} from 'firebase/database'
+import {ref as databaseRef, push, set } from 'firebase/database';
 import { db, storage  } from "./libs/firebase/firebaseConfig";
 
-document.querySelector("#rentalImage").addEventListener("change", onImageSelected);
-document.forms["rentalForm"].addEventListener("submit", onAddRental); 
+document.querySelector("#productImage").addEventListener("change", onImageSelected);
+document.forms["productForm"].addEventListener("submit", onAddProduct); 
 
 
-    function onAddRental(e) {
+    function onAddProduct(e) {
         e.preventDefault();
-        uploadNewVacactionRenal();
+        uploadNewProduct();
+        document.querySelector('.msg').style.display = "block";
     }
   
 
@@ -20,14 +21,21 @@ document.forms["rentalForm"].addEventListener("submit", onAddRental);
     document.querySelector(".display img").src = URL.createObjectURL(file);
 }
 
-    async function uploadNewVacactionRenal() {
+    async function uploadNewProduct() {
+
         // form data
-        const city = document.querySelector('#cityName').value.trim();
-        const file = document.querySelector('#rentalImage').files[0]
+        const title = document.querySelector('#productName').value.trim();
+        const price = parseFloat(document.querySelector('#productPrice').value.trim());
+        const size = parseFloat(document.querySelector('#productSize').value.trim());
+        //validate
+        //if(isNaN(price)){
+        //     setMessage(`Please enter a number for your price`);
+        // }
+        const file = document.querySelector('#productImage').files[0];
         
         // paths to the data to write
-        const imageRef =     storageRef( storage, `images/${file.name}`);
-        const dataRef =  databaseRef( db, 'rentals')
+        const imageRef =  storageRef( storage, `images/${file.name}`);
+        const dataRef =  databaseRef( db, 'products')
 
         // uploading file to the storage bucket
         const uploadResult = await uploadBytes(imageRef, file);
@@ -37,15 +45,17 @@ document.forms["rentalForm"].addEventListener("submit", onAddRental);
         const storagePath = uploadResult.metadata.fullPath;
 
         // firebase unique key
+        // push  return a ref to area with the key but no data wrtitten yet. 
         const itemRef = await push(dataRef)
-        
+        //ref.key
         set(itemRef,{
            key:itemRef.key,
-           sku:`jhvr${itemRef.key}`,
+           sku:`orsm${itemRef.key}`,
            urlPath,
            storagePath,
-           city,
-           price:12499
+           title,
+           price,
+           size
         })
         
     }
