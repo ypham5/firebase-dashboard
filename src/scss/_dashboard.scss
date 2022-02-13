@@ -10,12 +10,14 @@
      max-width: 480px;
      margin: 0 auto 4rem;
 
-    //  svg{
-    //      width: 25px;
-    //      &:hover {
-    //          color: $orange-10;
-    //      }
-    //  }
+     svg{
+         width: 25px;
+         &:hover {
+             color: $orange-10;
+             fill: $orange-10;
+             stroke: $orange-10;
+         }
+     }
 
      img {
         width: 100%;

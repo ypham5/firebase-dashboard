@@ -501,6 +501,14 @@ main {
   max-width: 480px;
   margin: 0 auto 4rem;
 }
+.product-card svg {
+  width: 25px;
+}
+.product-card svg:hover {
+  color: #f05622;
+  fill: #f05622;
+  stroke: #f05622;
+}
 .product-card img {
   width: 100%;
 }

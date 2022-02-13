@@ -9,7 +9,6 @@ document.forms["productForm"].addEventListener("submit", onAddProduct);
     function onAddProduct(e) {
         e.preventDefault();
         uploadNewProduct();
-        document.querySelector('.msg').style.display = "block";
     }
   
 
@@ -57,6 +56,6 @@ document.forms["productForm"].addEventListener("submit", onAddProduct);
            price,
            size
         })
-        
+        document.querySelector('.msg').style.display = "block";
     }
  
